@@ -1,8 +1,6 @@
 package dev.lpa.bankaccount;
 
-import org.junit.AfterClass;
 import org.junit.Assert;
-import org.junit.BeforeClass;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +13,7 @@ class BankAccountTest {
     private BankAccount account;
     private static int count;
 
-    @BeforeClass
+    @org.junit.BeforeClass
     public static void beforeClass(){
         System.out.println("This executes before the test cases. Count: " + count++);
 
@@ -57,7 +55,7 @@ class BankAccountTest {
         });
         String expectedMessage = "Amount not permitted for non-branch operations!";
         String actualMessage = illegalArg.getMessage();
-        Assert.assertTrue(actualMessage.contains(actualMessage));
+        Assert.assertTrue(expectedMessage.contains(actualMessage));
     }
 
     @Test
@@ -65,7 +63,7 @@ class BankAccountTest {
         assertTrue("The account is Not a CHECKING account", account.isChecking());
     }
 
-    @AfterClass
+    @org.junit.AfterClass
     public static void afterClass(){
         System.out.println("This executes after any test cases. Count: " + count++);
     }
